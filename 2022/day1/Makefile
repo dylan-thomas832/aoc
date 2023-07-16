@@ -7,7 +7,7 @@ MAKEFLAGS += --no-builtin-rules
 
 ##### Files #####
 
-INCLUDE = 
+INCLUDE =
 
 # Executable to build
 EXEC=run.exe
@@ -32,7 +32,7 @@ CXXFLAGS = -std=c++17 -Wall -Wextra -fsanitize=address
 # Main make entry point
 all: $(EXEC)
 
-# Link objects together into executable target 
+# Link objects together into executable target
 $(EXEC): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
