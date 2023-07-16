@@ -19,7 +19,7 @@ OBJS = \
 ##### Compiler Settings #####
 
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -O2 -fsanitize=address
+CXXFLAGS = -std=c++17 -Wall -Wextra -fsanitize=address
 
 ########## TARGETS ##########
 
