@@ -18,8 +18,18 @@ OBJS = \
 
 ##### Compiler Settings #####
 
-CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -fsanitize=address
+CC = g++
+
+CFLAGS_BASE = -std=c++17 -Wall -Wextra
+CFLAGS_REL = -03
+CFLAGS_DBG = -g -fsanitize=address
+
+LDFLAGS_BASE =
+LDFLAGS_DBG =  -fsanitize=address
+
+# Set actual variables
+CFLAGS = $(CFLAGS_BASE)
+LDFLAGS = $(LDFLAGS_BASE)
 
 ########## TARGETS ##########
 
@@ -27,18 +37,25 @@ CXXFLAGS = -std=c++17 -Wall -Wextra -fsanitize=address
 .DEFAULT_GOAL := all
 
 # Phony tarets; useful to deconflict from "actual" targets (file named 'clean')
-.PHONY: all clean
+.PHONY: all clean debug release
 
 # Main make entry point
 all: $(EXEC)
 
+debug:
+	$(eval CFLAGS = $(CFLAGS_BASE) $(CFLAGS_DBG))
+	$(eval LDFLAGS = $(LDFLAGS_BASE) $(LDFLAGS_DBG))
+
+release:
+	$(eval CFLAGS = $(CFLAGS_BASE) $(CFLAGS_REL))
+
 # Link objects together into executable target
 $(EXEC): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@ $(LDFLAGS)
 
 # Compile source files into translation units
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) $(INCLUDE) -o $@ -c $<
 
 # Clean the repo up
 clean:
