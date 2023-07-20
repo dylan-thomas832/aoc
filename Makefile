@@ -11,6 +11,7 @@ sourcedir := .
 
 # Compiler and compiler options
 CC = gcc
+CXX = g++
 CMAKE_CXX_COMPILER := g++
 CMAKE_OPTS =
 
