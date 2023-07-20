@@ -19,7 +19,7 @@ CFLAGS_BASE = -std=c++17 -Wall -Wextra
 CFLAGS_REL = -03
 CFLAGS_DBG = -g -fsanitize=address
 
-.PHONY: all install clean debug release
+.PHONY: all install debug release clean new
 
 all:
 	@cmake -S $(sourcedir) -B $(builddir) $(CMAKE_OPTS)
@@ -39,3 +39,6 @@ executables := $(shell find $(SOURCEDIR) -name '*.exe')
 clean:
 	@cmake --build $(builddir) --target clean
 	rm -rf $(executables)
+
+new: clean
+	rm -rf $(builddir)
