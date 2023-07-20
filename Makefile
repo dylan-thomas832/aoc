@@ -9,13 +9,16 @@ builddir := .build
 # Source root directory
 sourcedir := .
 
-.PHONY: all clean debug release
-
 # Compiler and compiler options
 CC = gcc
 CMAKE_CXX_COMPILER := g++
 CMAKE_OPTS =
 
+CFLAGS_BASE = -std=c++17 -Wall -Wextra
+CFLAGS_REL = -03
+CFLAGS_DBG = -g -fsanitize=address
+
+.PHONY: all install clean debug release
 
 all:
 	@cmake -S $(sourcedir) -B $(builddir) $(CMAKE_OPTS)
