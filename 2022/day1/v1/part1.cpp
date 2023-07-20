@@ -1,38 +1,19 @@
 // Copyright 2023 Dylan Thomas
 #include <algorithm>
-#include <fstream>
 #include <iostream>
-#include <string>
 #include <vector>
 
-const char EMPTY_LINE[] = "";
+#include "../../include/cli.hpp"
+#include "../include/day1.hpp"
 
 int main(int narg, char const *argv[]) {
-    if (narg < 2) {
-        std::cout << "Must provide the input file as the first CLI argument" << std::endl;
-        return EXIT_FAILURE;
+    int error = check_cli(narg, argv);
+    // Exit if bad CLI arguments
+    if (error != EXIT_SUCCESS) {
+        return error;
     }
 
-    const std::string filename = argv[1];
-    std::ifstream file(filename);
-    if (!file) {
-        std::cout << "Unable to open file: " + filename << std::endl;
-        return EXIT_FAILURE;
-    }
-
-    int current_calorie_sum = 0;
-    std::vector<int> calorie_counts;
-    // Read input file stream line-by-line
-    for (std::string line; getline(file, line);) {
-        if (line == EMPTY_LINE) {
-            // New line indicates new Elf's inventory. Add count and reset sum
-            calorie_counts.push_back(current_calorie_sum);
-            current_calorie_sum = 0;
-        } else {
-            // Increment the calorie count
-            current_calorie_sum += std::stoi(line);
-        }
-    }
+    std::vector<int> calorie_counts = parse_input(argv[1]);
 
     // Find the maximum calories and the corresponding elf
     auto max_calories = std::max_element(calorie_counts.begin(), calorie_counts.end());
