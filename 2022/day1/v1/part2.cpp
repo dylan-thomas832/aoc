@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "../../include/cli.hpp"
-#include "../include/day1.hpp"
+#include "../../include/day1.hpp"
 
 int main(int narg, char const *argv[]) {
     int error = check_cli(narg, argv);
