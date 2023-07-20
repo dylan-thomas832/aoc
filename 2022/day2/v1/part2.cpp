@@ -1,23 +1,16 @@
 // Copyright 2023 Dylan Thomas
 #include <algorithm>
-#include <fstream>
 #include <iostream>
-#include <string>
 #include <vector>
 
-const char EMPTY_LINE[] = "";
+#include "../../include/cli.hpp"
+#include "../../include/day2.hpp"
 
 int main(int narg, char const *argv[]) {
-    if (narg < 2) {
-        std::cout << "Must provide the input file as the first CLI argument" << std::endl;
-        return EXIT_FAILURE;
-    }
-
-    const std::string filename = argv[1];
-    std::ifstream file(filename);
-    if (!file) {
-        std::cout << "Unable to open file: " + filename << std::endl;
-        return EXIT_FAILURE;
+    int error = check_cli(narg, argv);
+    // Exit if bad CLI arguments
+    if (error != EXIT_SUCCESS) {
+        return error;
     }
 
     return EXIT_SUCCESS;
