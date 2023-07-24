@@ -9,6 +9,7 @@
         "development.txt": "pip-requirements",
         "*.log.*": "log",
         "iosfwd": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "unordered_map": "cpp"
     }
 }
