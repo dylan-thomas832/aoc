@@ -6,14 +6,14 @@
 #include "../../include/cli.hpp"
 #include "../../include/day1.hpp"
 
-int main(int narg, char const *argv[]) {
+int main(int narg, char const* argv[]) {
     int error = check_cli(narg, argv);
     // Exit if bad CLI arguments
     if (error != EXIT_SUCCESS) {
         return error;
     }
 
-    std::vector<int> calorie_counts = parse_input(argv[1]);
+    std::vector<int> calorie_counts = day1::parse_input(argv[1]);
 
     // Find the maximum calories and the corresponding elf
     auto max_calories = std::max_element(calorie_counts.begin(), calorie_counts.end());

@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 
+namespace day1 {
+
 const char EMPTY_LINE[] = "";
 
 // TODO(djt): Make this use shared_ptr
@@ -27,3 +29,5 @@ std::vector<int> parse_input(const std::string filename) {
 
     return calorie_counts;
 }
+
+};  // namespace day1

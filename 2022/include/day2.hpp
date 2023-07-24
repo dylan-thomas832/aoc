@@ -3,20 +3,24 @@
 
 #include <fstream>
 #include <string>
-#include <utility>
+#include <tuple>
 #include <vector>
 
-const char EMPTY_LINE[] = "";
+namespace day2 {
+
+using Round = std::tuple<char, char>;
 
 // TODO(djt): Make this use shared_ptr
-std::vector<std::pair<char, char>> parse_input(const std::string filename) {
+std::vector<Round> parse_input(const std::string filename) {
     std::ifstream file(filename);
-    std::vector<std::pair<char, char>> rounds;
+    std::vector<Round> rounds;
 
     // Read input file stream line-by-line
     for (std::string line; getline(file, line);) {
-        rounds.push_back(std::make_pair(line[0], line[-1]));
+        auto round = std::make_tuple(line.front(), line.back());
+        rounds.push_back(round);
     }
 
     return rounds;
 }
+}  // namespace day2
