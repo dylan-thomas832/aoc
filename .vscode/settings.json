@@ -1,5 +1,14 @@
 {
     "files.associations": {
-        "iosfwd": "cpp"
+        "*gitconfig*": "properties",
+        "*.config": "properties",
+        "*ignore*": "ignore",
+        "*pythonrc*": "python",
+        "*.flake8": "properties",
+        ".pylintrc": "properties",
+        "development.txt": "pip-requirements",
+        "*.log.*": "log",
+        "iosfwd": "cpp",
+        "tuple": "cpp"
     }
 }
