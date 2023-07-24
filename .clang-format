@@ -4,3 +4,6 @@ BasedOnStyle: Google
 IndentWidth: 4
 Language: Cpp
 ColumnLimit: 99
+PointerAlignment: Left
+ReferenceAlignment: Left
+DerivePointerAlignment: False
