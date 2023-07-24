@@ -1,5 +1,4 @@
 // Copyright 2023 Dylan Thomas
-#include <algorithm>
 #include <iostream>
 #include <string>
 #include <unordered_map>
