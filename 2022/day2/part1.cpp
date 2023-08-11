@@ -5,10 +5,10 @@
 #include <utility>
 #include <vector>
 
-#include "../../include/cli.hpp"
-#include "../../include/day2.hpp"
+#include "../include/cli.hpp"
+#include "day2.hpp"  // NOLINT(build/include_subdir)
 
-enum Hand : int64_t {
+enum class Hand {
     Rock,
     Paper,
     Scissors,
@@ -35,12 +35,15 @@ const std::unordered_map<Outcome, uint64_t> OUTCOME_SCORE = {
 Hand decodeHand(const char shape) {
     switch (shape) {
         case 'A':
+        case 'X':
             return Hand::Rock;
             break;
         case 'B':
+        case 'Y':
             return Hand::Paper;
             break;
         case 'C':
+        case 'Z':
             return Hand::Scissors;
             break;
         default:
@@ -49,37 +52,24 @@ Hand decodeHand(const char shape) {
     }
 }
 
-Outcome decodeRound(const char round) {
-    switch (round) {
-        case 'X':
-            return Outcome::Loss;
-            break;
-        case 'Y':
-            return Outcome::Tie;
-            break;
-        case 'Z':
-            return Outcome::Win;
-            break;
-        default:
-            throw std::runtime_error("Bad outcome value: " + round);
-            break;
-    }
-}
-
-int64_t mod(int64_t a, int64_t b) { return ((a % b) + b) % b; }
-
-Hand getHand(const Outcome round, const Hand other_hand) {
-    if (round == Outcome::Tie) {
-        return other_hand;
-    }
-    int64_t hand_val;
-    if (round == Outcome::Loss) {
-        hand_val = mod((other_hand - 1), 3);
-    } else if (round == Outcome::Win) {
-        hand_val = mod((other_hand + 1), 3);
+Outcome getOutcome(const Hand my_hand, const Hand other_hand) {
+    if (my_hand == other_hand) {
+        return Outcome::Tie;
     }
 
-    return static_cast<Hand>(hand_val);
+    if (my_hand == Hand::Rock) {
+        return other_hand == Hand::Scissors ? Outcome::Win : Outcome::Loss;
+    }
+
+    if (my_hand == Hand::Paper) {
+        return other_hand == Hand::Rock ? Outcome::Win : Outcome::Loss;
+    }
+
+    if (my_hand == Hand::Scissors) {
+        return other_hand == Hand::Paper ? Outcome::Win : Outcome::Loss;
+    }
+
+    throw std::runtime_error("Bad outcome");
 }
 
 int main(int narg, char const* argv[]) {
@@ -95,8 +85,8 @@ int main(int narg, char const* argv[]) {
     uint64_t total_score = 0;
     for (auto iter = rounds.begin(); iter != rounds.end(); iter++) {
         Hand other_hand = decodeHand(std::get<0>(*iter));
-        Outcome round_outcome = decodeRound(std::get<1>(*iter));
-        Hand my_hand = getHand(round_outcome, other_hand);
+        Hand my_hand = decodeHand(std::get<1>(*iter));
+        Outcome round_outcome = getOutcome(my_hand, other_hand);
 
         uint64_t current_score = HAND_SCORE.at(my_hand) + OUTCOME_SCORE.at(round_outcome);
         total_score += current_score;

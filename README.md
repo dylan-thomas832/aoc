@@ -7,8 +7,6 @@ Building and running instructions to come later.
 ## Rules
 
 My own rules are to first solve a problem with the use of as many standard library and Boost features as I see fit.
-Then, I will try to solve the problem with my own algorithms.
-For the second part, I can still use standard library features for IO, STL, containers, and math.
 
 ## To DO
 
@@ -19,12 +17,10 @@ For the second part, I can still use standard library features for IO, STL, cont
 
 ## Progress
 
-Days are deleted once Part 1 & 2 are completed & verified.
+Days are deleted once completed & verified.
 This includes both versions.
 
 - [ ] 2022
-  - Day 1
-  - Day 2
   - Day 3
   - Day 4
   - Day 5

@@ -3,8 +3,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../include/cli.hpp"
-#include "../../include/day1.hpp"
+#include "../include/cli.hpp"
+#include "day1.hpp"  // NOLINT(build/include_subdir)
 
 int main(int narg, char const* argv[]) {
     int error = check_cli(narg, argv);
