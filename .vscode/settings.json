@@ -11,5 +11,7 @@
         "iosfwd": "cpp",
         "tuple": "cpp",
         "unordered_map": "cpp"
-    }
+    },
+    "cmake.configureOnOpen": false,
+    "cmake.configureOnEdit": false
 }
