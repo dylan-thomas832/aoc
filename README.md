@@ -14,6 +14,7 @@ My own rules are to first solve a problem with the use of as many standard libra
 - [ ] Figure out how to debug
 - [ ] Create top-level `include` and `src` directories with years under it
 - [ ] Create script to compare outputs of each version
+- [ ] Create installation instructions
 
 ## Progress
 
