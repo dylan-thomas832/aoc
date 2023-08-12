@@ -29,4 +29,4 @@ if(PROJECT_IS_TOP_LEVEL)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
 endif()
 
-add_subdirectory(2022)
+add_subdirectory(src)

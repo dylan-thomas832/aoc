@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 
-int check_cli(int narg, char const *argv[]) {
+int check_cli(int narg, char const* argv[]) {
     if (narg < 2) {
         std::cout << "Must provide the input file as the first CLI argument" << std::endl;
         return EXIT_FAILURE;
