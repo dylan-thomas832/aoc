@@ -1,5 +1,6 @@
 // Copyright 2023 Dylan Thomas
-#pragma once
+#ifndef DJT_AOC_2022_DAY1_
+#define DJT_AOC_2022_DAY1_
 
 #include <fstream>
 #include <string>
@@ -30,4 +31,6 @@ std::vector<int> parse_input(const std::string filename) {
     return calorie_counts;
 }
 
-};  // namespace day1
+}  // namespace day1
+
+#endif  // DJT_AOC_2022_DAY1_

@@ -1,9 +1,12 @@
 // Copyright 2023 Dylan Thomas
-#pragma once
-
+#ifndef DJT_AOC_2022_CLI_HPP_
+#define DJT_AOC_2022_CLI_HPP_
+// Standard Library
 #include <fstream>
 #include <iostream>
 #include <string>
+
+namespace aoc {
 
 int check_cli(int narg, char const* argv[]) {
     if (narg < 2) {
@@ -20,3 +23,7 @@ int check_cli(int narg, char const* argv[]) {
 
     return EXIT_SUCCESS;
 }
+
+}  // namespace aoc
+
+#endif  // DJT_AOC_2022_CLI_HPP_

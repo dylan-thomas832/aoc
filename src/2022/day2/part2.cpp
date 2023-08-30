@@ -83,7 +83,7 @@ Hand getHand(const Outcome round, const Hand other_hand) {
 }
 
 int main(int narg, char const* argv[]) {
-    int error = check_cli(narg, argv);
+    int error = aoc::check_cli(narg, argv);
     // Exit if bad CLI arguments
     if (error != EXIT_SUCCESS) {
         return error;

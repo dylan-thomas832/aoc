@@ -7,7 +7,7 @@
 #include "day1.hpp"  // NOLINT(build/include_subdir)
 
 int main(int narg, char const* argv[]) {
-    int error = check_cli(narg, argv);
+    int error = aoc::check_cli(narg, argv);
     // Exit if bad CLI arguments
     if (error != EXIT_SUCCESS) {
         return error;
