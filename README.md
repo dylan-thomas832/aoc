@@ -70,7 +70,6 @@ Days are deleted once completed & verified.
 This includes both versions.
 
 - 2022
-  - Day 3
   - Day 4
   - Day 5
   - Day 6
