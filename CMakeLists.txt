@@ -1,7 +1,7 @@
 # TODO: Improve CMake builds
 #   1. Finish top-level CMake options, see CPP best-practices, etc.
-#   2. Create top-level Makefile that has debug/release targets that invoke CMake.
-#   3. Fix executable build by converting to CMake-based
+#   2. DONE: Create top-level Makefile that has debug/release targets that invoke CMake.
+#   3. DONE: Fix executable build by converting to CMake-based
 #   4. How to properly add compiler flags?
 cmake_minimum_required(VERSION 3.21)
 
