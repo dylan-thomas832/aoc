@@ -34,3 +34,5 @@
 # Generated directories
 build
 .build
+
+.vscode/
