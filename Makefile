@@ -11,6 +11,12 @@ build_path := build
 # Source root directory
 source_path := .
 
+# Executable installed directory
+executable_path := src
+
+# Finds all built *.exe files for cleaning
+executables := $(shell find $(executable_path) -name '*.exe')
+
 # Compiler and linker options
 CC = gcc
 CXX = g++
@@ -20,15 +26,15 @@ CMAKE_OPTS =
 # Number cores to use for building
 CORES := 10
 
-# Finds all built *.exe files for cleaning
-executables := $(shell find $(source_path) -name '*.exe')
-
 # Run all target by default
 .DEFAULT = all
 
 # Target: all - compile & install executables
 .PHONY: all
 all: install
+
+# Target: build command - alias
+build: %.exe
 
 # Target: build command - depends on build/Makefile
 %.exe: $(build_path)/Makefile
@@ -39,7 +45,8 @@ $(build_path)/Makefile: CMakeLists.txt
 	cmake -S $(source_path) -B $(build_path) ${CMAKE_OPTS}
 
 # Target: install command - depends on executable
-install: %.exe
+.PHONY: install
+install: build
 	cmake --install $(build_path)
 
 # Target: debug - set build type to Debug
