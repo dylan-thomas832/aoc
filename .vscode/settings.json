@@ -13,5 +13,8 @@
         "unordered_map": "cpp"
     },
     "cmake.configureOnOpen": false,
-    "cmake.configureOnEdit": false
+    "cmake.configureOnEdit": false,
+    "cSpell.words": [
+        "narg"
+    ]
 }
