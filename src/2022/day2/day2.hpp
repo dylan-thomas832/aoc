@@ -1,7 +1,7 @@
 // Copyright 2023 Dylan Thomas
 #ifndef DJT_AOC_2022_DAY2_
 #define DJT_AOC_2022_DAY2_
-
+// Standard Library
 #include <fstream>
 #include <string>
 #include <tuple>
@@ -24,6 +24,7 @@ std::vector<Round> parse_input(const std::string filename) {
 
     return rounds;
 }
+
 }  // namespace day2
 
 #endif  // DJT_AOC_2022_DAY2_
