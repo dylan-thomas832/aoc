@@ -1,8 +1,7 @@
 # Dylan's Advent of Code
 
-This holds my attempts at Advent of Code solutions.
+This holds my attempts at [Advent of Code](https://adventofcode.com/) solutions.
 The solutions will mostly be in C++ and Python for practicing.
-Building and running instructions to come later.
 
 ## Installation
 
@@ -62,7 +61,7 @@ The elf at 224 has 68923 calories
 - [x] Improve CMake build types
 - [ ] Figure out how to debug
 - [x] Create top-level `include` and `src` directories with years under it
-- [ ] Create script to compare outputs of each version
+- [ ] ~Create script to compare outputs of each version~
 - [x] Create installation instructions
 
 ## Progress
